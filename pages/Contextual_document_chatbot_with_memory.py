@@ -138,5 +138,5 @@ st.button("New Chat", on_click=new_chat, type="primary")
 # Display the conversation history using an expander, and allow the user to download it
 with st.expander("Conversation", expanded=True):
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-        st.info(st.session_state["past"][i], icon="🧐")
-        st.success(st.session_state["generated"][i], icon="🤖")
+        st.info(st.session_state["past"][i])
+        st.success(st.session_state["generated"][i])

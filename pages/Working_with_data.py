@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
+import json
 from langchain.llms import OpenAI
-from langchain.chat_models import ChatOpenAI
 from langchain.agents import create_pandas_dataframe_agent
 
 # Set Streamlit page configuration
@@ -31,22 +31,24 @@ if not(API_O):
 if uploaded_file := st.file_uploader("**Upload Your CSV File**", type=["csv"]):
     df = pd.read_csv(uploaded_file, sep=SEP_OPTION, encoding="utf-8")
     st.dataframe(df)
-    st.help(df)
+    with st.expander("See data description"):
+        st.help(df)
     llm = OpenAI(temperature=0, openai_api_key=API_O, model_name=MODEL, verbose=True)
-    agent = create_pandas_dataframe_agent(llm, df, verbose=False)
+    agent = create_pandas_dataframe_agent(llm, df, verbose=False, return_direct=True)
     if query := st.text_input("Enter your query: "):
         prompt = (
             """
+            You are a assistant agent for data analysis.
 
-            If the following query is just asking a question, reply a string as follows:
-            "Answer": "answer"
-            Example:
-            "Answer": "The highets amount of APc is 10000 euros"
+            Answer the best you can to the query below, 
+            and if you don't know just reply that you don't know.
 
-            If you do not know the answer, reply as follows:
-            "Answer": "I do not know."
+            If your response is a text, use the st.success() function.
+            Example : st.success("your answer")
 
-            if the query requires to plot a chart, use the streamlit st.bar or st.line charts.
+            If the query requires to plot a chart, use the plotly.express library to draw the chart 
+            and reply with the st.plotly_chart() function.
+            Example : st.plotly_chart(chart)
 
             Below is the query.
             Query: 
@@ -54,4 +56,5 @@ if uploaded_file := st.file_uploader("**Upload Your CSV File**", type=["csv"]):
             + query
         )
         response = agent.run(prompt)
+        #st.code(response)
         response

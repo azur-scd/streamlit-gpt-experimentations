@@ -44,7 +44,6 @@ markdown-it-py==2.2.0
 MarkupSafe==2.1.2
 marshmallow==3.19.0
 marshmallow-enum==1.5.1
-matplotlib==3.7.1
 mdurl==0.1.2
 monotonic==1.6
 msg-parser==1.2.0
@@ -62,6 +61,7 @@ pandas==1.5.3
 pdf2image==1.16.3
 pdfminer.six==20221105
 Pillow==9.5.0
+plotly==5.14.1
 protobuf==3.20.3
 pyarrow==12.0.0
 pycparser==2.21
