@@ -1,5 +1,11 @@
 [theme]
-base="dark"
+base="light"
 
 [server]
-port = 8050
+port = 8051
+baseUrlPath = "streamlit-gpt-experimentations"
+sslCertFile="ssl/localhost.crt"
+sslKeyFile="ssl/localhost.key"
+
+[browser]
+serverAddress = "0.0.0.0"

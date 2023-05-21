@@ -1,0 +1,7 @@
+venv*/**
+logs/
+.vscode/
+.git
+*.md
+*.bat
+.cache
