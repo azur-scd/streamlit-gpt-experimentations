@@ -4,7 +4,6 @@ base="light"
 [server]
 port = 8051
 baseUrlPath = "streamlit-gpt-experimentations"
-enableWebsocketCompression = false
 sslCertFile="ssl/localhost.crt"
 sslKeyFile="ssl/localhost.key"
 
