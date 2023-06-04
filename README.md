@@ -6,6 +6,10 @@
 
 ![homepage](screenshot.png)
 
+## Online Access on Streamlit Cloud
+
+The app has been deployed on the community Streamlit Cloud and is reachable at this url : [https://gegedenice-streamlitcloud-gpt-experimentations-about-y7jwfv.streamlit.app/](https://gegedenice-streamlitcloud-gpt-experimentations-about-y7jwfv.streamlit.app/)
+
 ## Local installation
 
 ### Python environment
